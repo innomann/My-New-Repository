@@ -1,6 +1,606 @@
-<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-<h2>Lorem ipsum dolor sit amet.</h2>
-<h2>Lorem ipsum chikoloboyi dolor sit amet consectetur adipisicing.</h2>
-<h3>Lorem ipsum sit amet.</h3>
-<h4>steve in th beulding</h4>
-<h1>men this another trayo</h1>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  /*Resets and Grobals*/
+  *{
+    margin: 0;
+    box-sizing: border-box;
+  }
+  img{
+    display: block;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  /*colors*/
+  :root{
+    --white:#fff;
+    --light-grey:#f8f8f8;
+    --grey:#EBEBEB;
+    --dark-grey:#717171;
+    --light-blue:#1792D2;
+    --dark-blue:#143774;
+  }
+
+  /*Utilities*/
+
+  .wrapper{
+    max-width: 960px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .flex-row, .flex-column{
+    display:flex;
+    flex-direction: row;
+
+  }
+
+  .flex-column{
+    flex-direction: column;
+  }
+  
+  .wrapper-header{
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 920px){
+    .wrapper.flex-row{
+      flex-direction: column;
+    }
+  }
+
+
+  /*Typograph*/
+  h2,h3,h4,p{
+    margin-bottom: 1em;
+  }
+
+  .main-title, .article-title{
+    font-family: 'Lora',serif;
+  }
+  .main-title{
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--dark-blue);
+  }
+  .main-subtitle{
+    color: var(--light-blue);
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .article-title{
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+  }
+
+  .aside-post.article-title{
+    font-size: 1.125rem;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .article-meta-info, .action-link, .aside-about-me p{
+    font-size: 0.87rem;
+  }
+  .aside-block-title{
+    font-size: 1.125rem;
+    color: var(--dark-blue);
+    text-transform: uppercase;
+  }
+
+  strong{
+    font-weight: 700;
+  }
+
+  .aside-about-me p{
+    color:var(--dark-blue);
+  }
+
+  .sentence-link, .action-link{
+    color:var(--light-blue);
+  }
+
+  .action-link{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .sentence-link:hover,.sentence-link:focus,
+  .action-link:hover,.action-link:focus{
+    color: var(--dark-blue);
+  }
+
+  a.article-title:hover, a.article-title:focus{
+    color: var(--light-blue);
+  }
+
+
+  /*Layout*/
+
+  .wrapper-main{
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  main{
+    width: 72%;
+  }
+  aside{
+    width: 22%;
+  }
+
+  .article-recent{
+    justify-content: space-between;
+  }
+
+  .article-recent-header{
+    width: 27%;
+  }
+  .article-recent-body{
+    width: 69%;
+  }
+
+  @media screen and (max-width: 920px) {
+    .article-recent{
+      flex-direction: column;
+    }
+
+    main,
+    aside,
+    .article-recent-header,
+    .article-recent-body{
+      width: 100%;
+    }
+    
+  }
+  /*General styles*/
+body{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--dark-grey);
+}
+
+.main-nav ul{
+  list-style: none;
+  padding: 0;
+}
+
+.main-nav li{
+  display: inline-block;
+  margin-left: 1rem;
+}
+.main-nav li:first-of-type{
+  margin-left: 0;
+}
+
+
+
+@media screen and(max-width: 920px;) {
+  header{
+    text-align: center;
+  }
+  .title{
+    margin-bottom: 1rem;
+  }
+
+  .main-nav li{
+    display: block;
+    margin-left: 0;
+  }
+  
+}
+  /*Navy links*/
+  
+  .main-nav a::after{
+    color:var(--grey-dark);
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .main-nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: gray;
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform ease-in-outm 350ms;
+    transition-delay: 50ms;
+  }
+  .nav-link:hover.nav-link::after,
+  .nav-link:focus.nav-link::after,
+  .nav-link.active.nav-link ::after{
+    transform: scale(1);
+    transform-origin:left;
+  }
+
+  .article-featured, .article-recent{
+    padding: 1rem 0;
+  }
+  .article-featured{
+    padding-top: 0;
+    padding-bottom: 2rem;
+  }
+
+
+
+
+
+/*new navbar style starts here*/
+
+.header {
+  
+  
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+  position: scroll;
+  width: 100%;
+  z-index: 3;
+  margin-bottom: 3rem;
+
+  
+
+}
+
+.header,ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: var(--dark-blue);
+  
+}
+
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border-right: px solid #f4f4f4;
+  text-decoration: none;
+  color:#fff;
+}
+
+.header li a:hover,
+.header .menu-btn:hover {
+  background-color: #f4f4f4;
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+  
+}
+
+.header .menu-icon .navicon {
+  background: #fff;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+  color: white;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #fff;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* 48em = 768px */
+
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+  
+  
+}
+
+
+
+
+/*newnavbar style ends here*/
+
+
+
+
+
+
+
+
+
+  
+  /*Featured article styles and flex order*/
+.article-featured{
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+.article-featured img{
+  order: 1;
+}
+
+.article-featured .article-meta-info{
+  order: 2;
+}
+
+.article-featured .article-title{
+  order: 3;
+}
+
+.article-featured p{
+  order: 4;
+}
+
+.article-featured .action-link{
+  order: 5;
+}
+
+  /*Recent article style*/
+ .article-recent img{
+   object-fit: cover;
+   height: 250px;
+ }
+ @media screen and (max-width: 920px;){
+   .article-featured img{
+     height: auto;
+   }
+ }
+
+
+
+
+
+
+
+  /*Aside style- About me block*/
+  .aside-about-me, .aside-recent-posts{
+    border: solid 20px var(--grey);
+    margin-bottom: 4rem;
+    padding: 1rem;
+
+  }
+  .aside-about-me img{
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .aside-post{
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--dark-grey);
+  }
+
+  .aside-post :first-of-type{
+    padding-top: 0;
+  }
+  .aside-post :last-child{
+    border-bottom: none;
+  }
+  @media screen and(max-width: 920){
+    aside{
+      margin-top: 2rem;
+    }
+    .aside-about-me img{
+      height: auto;
+    }
+  }
+  /*Footer style*/
+  footer{
+    margin-top: 2rem;
+    padding: 2rem 0;
+    background-color: var(--dark-blue);
+    color: rgba(255,255,255,0.6);
+    align-items: center;
+    text-align: center;
+  }
+
+  footer p{
+    margin-bottom: 0;
+  }
+</style>
+
+
+    
+  <header class="header">
+    <a href="" class="logo">Afrikin</a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+  
+  <div class="wrapper flex-row wrappeer-main">
+    <main role="main">
+      <!-- Featured article starts here -->
+      <article class="article featured flex-column">
+        <h2 class="article-title">Finding simplicity in life</h2>
+        <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Dog on the woodenfloor looking at the corner">
+        <p class="article-mental-info">July 23 1998|3 comments</p>
+        <p><strong>Finding simplicity in lifecan get complicated really quickly</strong>, but it doesn't have to be! There are many ways to simplify your life, <href="#" class="sentence-link">a few of which we have explained Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta illum laudantium alias omnis!</p>
+        <a href="#"class="action-link">continue reading</a>
+
+      </article>
+
+      <!-- Recent article list starts here -->
+      <!-- First article -->
+      <article class="article-recent flex-row">
+        <div class="article-recent-header">
+          <img src="https://i.pinimg.com/originals/c4/d8/c9/c4d8c9d8fd998604a460e5e1140ec926.jpg" alt="Dog on the wooden floor looking at the camera">
+          <p class="article-metal-info">July 13,2019</p>
+        </div>
+
+        <div class="article-recent-body">
+          <h3 class="article-title">Keep cooking simple</h3>
+          <p>Keep cooking more Lorem ipsum dolor sit amet consectetur adipisicing elit. In, incidunt recusandae? Voluptate rerum magnam reprehenderit.</p>
+          <a href="#" class="action-link">Continue reading</a>
+        </div>
+      </article>
+      <!-- Second page -->
+      <article class="article-recent flex-row">
+        <div class="article-recent-header">
+          <img src="https://images.pexels.com/photos/9411/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+          <p class="article-meta-info">July 12,2019</p>
+        </div>
+        
+        <div class="article-recent-recent-body">
+          <h3 class="article-title">simplicity and work</h3>
+          <p>simplicity  dolor sit amet consectetur adipisicing. Q corporis?</p>
+          <a href="#"class="action-link" >Continue reading</a>
+        </div>
+      </article>
+
+      <!-- Third Post -->
+      <article class="article-recent flex-row">
+        <div class="article-recent-header">
+          <img src="https://images.pexels.com/photos/119550/pexels-photo-119550.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+          <p class="article-metal-info">July 3 2019</p>
+        </div>
+
+        <div class="article-recent-body">
+          <h3 class="article-title">Lorem ipsum dolor sit amet consectetur.</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus architecto impedit repellat.</p>
+          <a href="#" class="action-link">continue reading</a>
+        </div>
+      </article>
+
+    </main>
+
+    <aside>
+      <!-- Aside block -->
+      <article class="aside-about-me">
+        <h3 class="aside-block-title">About me</h3>
+        <img src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Fill Muray">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, soluta, tenetur saepe consectetur suscipit illum doloribus, deserunt necessitatibus deleniti repellat libero dolore odio fuga aspernatur aut aperiam? Fugiat, quis amet.</p>
+      </article>
+
+      <section class="aside-recent-posts">
+        <h3 class="aside-block-title">Recent posts</h3>
+
+        <!-- First post -->
+        <div class="aside-post">
+          <img src="https://www.gethppy.com/wp-content/uploads/2017/07/How-Decluttering-Your-Workspace-Can-Make-You-A-Better-Employee.jpeg" alt="Dog in the wood">
+          <a href="#" class="article-title">Keep cooking simple</a>
+        </div>
+
+        <!-- second post -->
+        <div class="aside post">
+          <img src="https://images.pexels.com/photos/92904/pexels-photo-92904.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="simple room decoration with a woman sleeping aside">
+          <a href="#" class="article-title">simplicity life and work</a>
+        </div>
+
+        <!-- Third post -->
+        <div class="aside post">
+          <img src="https://content.api.news/v3/images/bin/84296e28546d3d136141aa72c7bdefe9?width=1024" alt="simple room decoration with a woman sleeping by the window">
+          <a href="#" class="article-title">simple decoration</a>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  
+  <footer class="flex column">
+    <p><strong>living simple life</strong></p>
+    <p>copyright 2020</p>
+  </footer>
+
+</html>
